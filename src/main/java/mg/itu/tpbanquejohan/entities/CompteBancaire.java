@@ -4,11 +4,13 @@
  */
 package mg.itu.tpbanquejohan.entities;
 
+
 import java.io.Serializable;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import mg.itu.tpbanquejohan.ejb.GestionnaireCompte;
 
 /**
  *
@@ -17,6 +19,9 @@ import jakarta.persistence.Id;
 @Entity
 public class CompteBancaire implements Serializable {
 
+    public CompteBancaire(){
+
+    }
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
