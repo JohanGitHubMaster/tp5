@@ -10,6 +10,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 import mg.itu.tpbanquejohan.ejb.GestionnaireCompte;
 
 /**
@@ -17,6 +18,7 @@ import mg.itu.tpbanquejohan.ejb.GestionnaireCompte;
  * @author ASUS
  */
 @Entity
+@Table(name = "comptebancaire")
 public class CompteBancaire implements Serializable {
 
     public CompteBancaire(){

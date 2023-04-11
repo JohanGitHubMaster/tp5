@@ -44,10 +44,6 @@ public class GestionnaireCompte {
   
     @EJB
     private GestionnaireCompte autreEJB;
-
-    public GestionnaireCompte(){
-        
-    }
     
     @PostConstruct
     public void init(){
@@ -71,6 +67,7 @@ public class GestionnaireCompte {
         autreEJB.creerCompte(c2);
         autreEJB.creerCompte(c3);
         autreEJB.creerCompte(c4);
+       
     }
     
     
