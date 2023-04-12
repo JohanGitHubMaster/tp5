@@ -10,6 +10,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.NamedQueries;
+import jakarta.persistence.NamedQuery;
 import jakarta.persistence.Table;
 import mg.itu.tpbanquejohan.ejb.GestionnaireCompte;
 
@@ -18,7 +20,8 @@ import mg.itu.tpbanquejohan.ejb.GestionnaireCompte;
  * @author ASUS
  */
 @Entity
-@Table(name = "comptebancaire")
+@NamedQueries({
+    @NamedQuery(name = "CompteBancaire.findAll", query = "SELECT c FROM CompteBancaire c"),})
 public class CompteBancaire implements Serializable {
 
     public CompteBancaire(){

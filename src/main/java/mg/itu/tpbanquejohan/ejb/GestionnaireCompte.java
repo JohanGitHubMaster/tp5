@@ -42,8 +42,8 @@ public class GestionnaireCompte {
     @PersistenceContext(unitName="banquePU")
     private EntityManager em;
   
-    @EJB
-    private GestionnaireCompte autreEJB;
+    //@EJB
+    //private GestionnaireCompte autreEJB;
     
     @PostConstruct
     public void init(){
@@ -63,10 +63,10 @@ public class GestionnaireCompte {
         c4.setNom("Georges Harrisson");
         c4.setSolde(100000);
         
-        autreEJB.creerCompte(c1);
-        autreEJB.creerCompte(c2);
-        autreEJB.creerCompte(c3);
-        autreEJB.creerCompte(c4);
+        this.creerCompte(c1);
+        this.creerCompte(c2);
+        this.creerCompte(c3);
+        this.creerCompte(c4);
        
     }
     
@@ -77,7 +77,7 @@ public class GestionnaireCompte {
     }
     
     public List<CompteBancaire> getAllComptes() {   
-        Query query = em.createNamedQuery("comptebancaire.findAll");
+        Query query = em.createNamedQuery("CompteBancaire.findAll");
         //TypedQuery<CompteBancaire> quer = (TypedQuery<CompteBancaire>) em.createNamedQuery("CompteBanquaire.findAll");
       return query.getResultList();
     }

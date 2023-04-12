@@ -7,6 +7,7 @@ package mg.itu.tpbanquejohan.jsf;
 import jakarta.ejb.EJB;
 import jakarta.inject.Named;
 import jakarta.faces.annotation.View;
+import jakarta.faces.view.ViewScoped;
 import java.io.Serializable;
 import java.util.List;
 import mg.itu.tpbanquejohan.ejb.GestionnaireCompte;
@@ -16,7 +17,7 @@ import mg.itu.tpbanquejohan.entities.CompteBancaire;
  *
  * @author admin
  */
-@Named(value = "listeComptes")
+@Named(value = "listeCompte")
 @View
 public class ListeComptes implements Serializable {
 
@@ -24,6 +25,7 @@ public class ListeComptes implements Serializable {
      * Creates a new instance of ListeComptes
      */
     public ListeComptes() {
+        //gestionnaireCompte.init();
     }
     
     @EJB
