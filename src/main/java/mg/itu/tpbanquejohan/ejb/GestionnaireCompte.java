@@ -4,11 +4,7 @@
  */
 package mg.itu.tpbanquejohan.ejb;
 
-import jakarta.annotation.PostConstruct;
 import jakarta.annotation.sql.DataSourceDefinition;
-import jakarta.ejb.EJB;
-import jakarta.ejb.Singleton;
-import jakarta.ejb.Startup;
 import jakarta.ejb.Stateless;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
@@ -35,43 +31,11 @@ import mg.itu.tpbanquejohan.entities.CompteBancaire;
     }
 )
 @Stateless
-@Singleton
-@Startup
 public class GestionnaireCompte {
     
     @PersistenceContext(unitName="banquePU")
     private EntityManager em;
-  
-    //@EJB
-    //private GestionnaireCompte autreEJB;
-    
-    @PostConstruct
-    public void init(){
-        CompteBancaire c1 = new CompteBancaire();
-        c1.setNom("John Lennon");
-        c1.setSolde(150000);
-        
-        CompteBancaire c2 = new CompteBancaire();
-        c2.setNom("Paul McCartney");
-        c2.setSolde(950000);
-           
-        CompteBancaire c3 = new CompteBancaire();
-        c3.setNom("Ringo Starr");
-        c3.setSolde(20000);
-        
-        CompteBancaire c4 = new CompteBancaire();
-        c4.setNom("Georges Harrisson");
-        c4.setSolde(100000);
-        
-        this.creerCompte(c1);
-        this.creerCompte(c2);
-        this.creerCompte(c3);
-        this.creerCompte(c4);
        
-    }
-    
-    
-    
     public void creerCompte(CompteBancaire c) {
         em.persist(c);
     }

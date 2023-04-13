@@ -5,15 +5,16 @@
 package mg.itu.tpbanquejohan.entities;
 
 
+import jakarta.persistence.Basic;
+import jakarta.persistence.Column;
 import java.io.Serializable;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.NamedQueries;
 import jakarta.persistence.NamedQuery;
-import jakarta.persistence.Table;
-import mg.itu.tpbanquejohan.ejb.GestionnaireCompte;
 
 /**
  *
@@ -23,14 +24,23 @@ import mg.itu.tpbanquejohan.ejb.GestionnaireCompte;
 @NamedQueries({
     @NamedQuery(name = "CompteBancaire.findAll", query = "SELECT c FROM CompteBancaire c"),})
 public class CompteBancaire implements Serializable {
-
-    public CompteBancaire(){
-
-    }
+  
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "ID")
+
     private Long id;
+
+    @Column(name = "SOLDE")
+    private int solde;
+
+    @Column(name = "NOM")             
+    private String nom;   
+    
+    public CompteBancaire(){
+
+    }
 
     public Long getId() {
         return id;
@@ -60,8 +70,7 @@ public class CompteBancaire implements Serializable {
     public String toString() {
         return "mg.itu.tpbanquejohan.entities.CompteBancaire[ id=" + id + " ]";
     }
-    
-    private int solde;
+ 
 
     /**
      * Get the value of solde
@@ -86,8 +95,6 @@ public class CompteBancaire implements Serializable {
   this.nom = nom;  
   this.solde = solde;  
 }  
-                  
-      private String nom;
 
     /**
      * Get the value of nom
