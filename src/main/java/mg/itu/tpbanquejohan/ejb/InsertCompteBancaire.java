@@ -19,30 +19,36 @@ import mg.itu.tpbanquejohan.jsf.ListeComptes;
 @Singleton
 @Startup
 public class InsertCompteBancaire {
+
     @EJB
     private GestionnaireCompte autreEJB;
-    
+
     @PostConstruct
-    public void init(){
-        CompteBancaire c1 = new CompteBancaire();
-        c1.setNom("John Lennon");
-        c1.setSolde(150000);
-        
-        CompteBancaire c2 = new CompteBancaire();
-        c2.setNom("Paul McCartney");
-        c2.setSolde(950000);
-           
-        CompteBancaire c3 = new CompteBancaire();
-        c3.setNom("Ringo Starr");
-        c3.setSolde(20000);
-        
-        CompteBancaire c4 = new CompteBancaire();
-        c4.setNom("Georges Harrisson");
-        c4.setSolde(100000);
-        
-        autreEJB.creerCompte(c1);
-        autreEJB.creerCompte(c2);
-        autreEJB.creerCompte(c3);
-        autreEJB.creerCompte(c4);    
+    public void init() {
+
+        if (autreEJB.nbComptes() == 0) {
+
+            CompteBancaire c1 = new CompteBancaire();
+            c1.setNom("John Lennon");
+            c1.setSolde(150000);
+
+            CompteBancaire c2 = new CompteBancaire();
+            c2.setNom("Paul McCartney");
+            c2.setSolde(950000);
+
+            CompteBancaire c3 = new CompteBancaire();
+            c3.setNom("Ringo Starr");
+            c3.setSolde(20000);
+
+            CompteBancaire c4 = new CompteBancaire();
+            c4.setNom("Georges Harrisson");
+            c4.setSolde(100000);
+
+            autreEJB.creerCompte(c1);
+            autreEJB.creerCompte(c2);
+            autreEJB.creerCompte(c3);
+            autreEJB.creerCompte(c4);
+        }
+
     }
 }
