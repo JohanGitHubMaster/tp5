@@ -31,6 +31,8 @@ public class ListeComptes implements Serializable {
     
     public List<CompteBancaire> comptebancairelist;
     
+    
+    
     public List<CompteBancaire> getAllComptes(){  
       
             if(comptebancairelist == null)
