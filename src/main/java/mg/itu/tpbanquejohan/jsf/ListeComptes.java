@@ -8,6 +8,7 @@ import jakarta.ejb.EJB;
 import jakarta.inject.Named;
 import jakarta.faces.annotation.View;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 import mg.itu.tpbanquejohan.ejb.GestionnaireCompte;
 import mg.itu.tpbanquejohan.entities.CompteBancaire;
@@ -40,6 +41,8 @@ public class ListeComptes implements Serializable {
             comptebancairelist = autre.getAllComptes();
            return comptebancairelist;          
         }
+    
+   
            
     
     public String supprimerLeCompte(CompteBancaire compteBancaire){

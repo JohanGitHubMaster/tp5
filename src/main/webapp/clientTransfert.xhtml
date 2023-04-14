@@ -34,8 +34,12 @@
                                         >   
                            <f:selectItems value="#{listeCompte.allComptes}"  
                                           var="item"   
-                                           itemValue="#{item.id}" />  
+                                           itemValue="#{item.id}"
+                                           itemLabel="#{item.id}"
+                                           />  
                        </h:selectOneMenu>
+                        
+                        
                         
                         
                         <h:outputLabel value="solde:" for="solde" />
