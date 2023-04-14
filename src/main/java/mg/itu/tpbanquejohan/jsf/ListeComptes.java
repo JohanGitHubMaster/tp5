@@ -33,6 +33,7 @@ public class ListeComptes implements Serializable {
     
     
     
+    
     public List<CompteBancaire> getAllComptes(){  
       
             if(comptebancairelist == null)
@@ -40,5 +41,10 @@ public class ListeComptes implements Serializable {
            return comptebancairelist;          
         }
            
+    
+    public String supprimerLeCompte(CompteBancaire compteBancaire){
+        this.autre.supprimerCompte(compteBancaire);
+        return "listeComptes";
+    }
     
 }

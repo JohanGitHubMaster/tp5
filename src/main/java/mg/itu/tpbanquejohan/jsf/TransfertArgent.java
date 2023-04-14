@@ -65,9 +65,7 @@ public class TransfertArgent {
     }
 
     public void loadCompteBancaire() {
-        this.compteBancaire = gestionnaireCompte.findById(id);
-        this.idtransfert = 2;
-        
+        this.compteBancaire = gestionnaireCompte.findById(id);    
     }
 
     public CompteBancaire getCompteBancaireaTransferer() {

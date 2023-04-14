@@ -45,11 +45,11 @@ public class GestionnaireCompte {
         //TypedQuery<CompteBancaire> quer = (TypedQuery<CompteBancaire>) em.createNamedQuery("CompteBanquaire.findAll");
         return query.getResultList();
     }
-    
-        public long nbComptes() {
+
+    public long nbComptes() {
         String s = "SELECT COUNT(c) FROM CompteBancaire c";
         Query query = em.createQuery(s);
-        return (long)query.getSingleResult();
+        return (long) query.getSingleResult();
     }
 
     public void transferer(CompteBancaire source, CompteBancaire destination,
@@ -63,9 +63,35 @@ public class GestionnaireCompte {
     public CompteBancaire update(CompteBancaire compteBancaire) {
         return em.merge(compteBancaire);
     }
-    
-    public CompteBancaire findById(long idCompteBancaire) {  
-        return em.find(CompteBancaire.class, idCompteBancaire);  
+
+    public CompteBancaire findById(long idCompteBancaire) {
+        return em.find(CompteBancaire.class, idCompteBancaire);
+    }
+
+    public void supprimerCompte(CompteBancaire compteBancaire) {
+        em.remove(em.merge(compteBancaire));
+    }
+
+    /**
+     * Dépôt d'argent sur un compte bancaire.
+     *
+     * @param compteBancaire
+     * @param montant
+     */
+    public void deposer(CompteBancaire compteBancaire, int montant) {
+        compteBancaire.deposer(montant);
+        update(compteBancaire);
+    }
+
+    /**
+     * Retrait d'argent sur un compte bancaire.
+     *
+     * @param compteBancaire
+     * @param montant
+     */
+    public void retirer(CompteBancaire compteBancaire, int montant) {
+        compteBancaire.retirer(montant);
+        update(compteBancaire);
     }
 
 }

@@ -7,6 +7,8 @@
                 xmlns:h="http://xmlns.jcp.org/jsf/html"
                 xmlns:p="http://primefaces.org/ui">
 
+
+
     <ui:define name="top">
         Liste des comptes
     </ui:define>
@@ -46,7 +48,16 @@
                         <h:outputText value="#{item.solde}"/>
                     </p:column>
                     <p:column>
-                        <h:graphicImage height="10" width="10"></h:graphicImage>
+                        <f:facet name="header">
+                            <h:outputText value="solde"/>
+                        </f:facet>
+                       
+
+                        <h:commandLink action="#{listeCompte.supprimerLeCompte(item)}"
+                                       title="Supprimer le compte de #{item.nom}" value="supprimer" >
+                           
+                        </h:commandLink>
+
                     </p:column>
                 </p:dataTable>              
             </h:form>
