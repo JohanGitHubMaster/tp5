@@ -76,7 +76,7 @@ public class MouvementBean implements Serializable {
       // Pour le cas où l'utilisateur a soumis le formulaire sans indiquer le type du mouvement
       return;
     }
-    if (valeurTypeMouvement.equals("****")) {
+    if (valeurTypeMouvement.equals(typeMouvement)) {
       int retrait = (int) valeur;
       if (compte.getSolde() < retrait) {
         FacesMessage message

@@ -59,6 +59,18 @@
                         </h:commandLink>
 
                     </p:column>
+                    
+                     <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="mouvement"/>
+                        </f:facet>
+                       
+
+                       <h:link outcome="mouvementCompte?id=#{item.id}" 
+                            value="retrait/transfert #{item.nom}"/>
+
+                    </p:column>
+                    
                 </p:dataTable>              
             </h:form>
             <h:messages/>
