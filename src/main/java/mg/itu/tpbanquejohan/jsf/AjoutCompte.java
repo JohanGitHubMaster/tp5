@@ -9,6 +9,7 @@ import jakarta.enterprise.context.RequestScoped;
 import jakarta.inject.Named;
 import mg.itu.tpbanquejohan.ejb.GestionnaireCompte;
 import mg.itu.tpbanquejohan.entities.CompteBancaire;
+import mg.itu.tpbanquejohan.entities.OperationBancaire;
 
 /**
  *
@@ -19,10 +20,10 @@ import mg.itu.tpbanquejohan.entities.CompteBancaire;
 public class AjoutCompte {
 
     @EJB
-   private GestionnaireCompte gestionnaireCompte;
-   private CompteBancaire nouveauCompte;
-   private int solde;
-   private String nom;
+    private GestionnaireCompte gestionnaireCompte;
+    private CompteBancaire nouveauCompte;
+    private int solde;
+    private String nom;
 
     public int getSolde() {
         return solde;
@@ -47,18 +48,17 @@ public class AjoutCompte {
     public void setNouveauCompte(CompteBancaire nouveauCompte) {
         this.nouveauCompte = nouveauCompte;
     }
+
     /**
      * Creates a new instance of AjoutCompte
      */
-    public String ajoutNouveauCompte()
-    {
-        this.nouveauCompte = new CompteBancaire();
-        this.nouveauCompte.setNom(this.nom);
-        this.nouveauCompte.setSolde(this.solde);
+    public String ajoutNouveauCompte() {
+        this.nouveauCompte = new CompteBancaire(this.nom,this.solde);
         gestionnaireCompte.creerCompte(this.nouveauCompte);
         return "listeComptes";
     }
+
     public AjoutCompte() {
     }
-    
+
 }

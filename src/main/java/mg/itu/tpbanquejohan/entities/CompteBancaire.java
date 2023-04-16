@@ -5,14 +5,19 @@
 package mg.itu.tpbanquejohan.entities;
 
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import java.io.Serializable;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.NamedQueries;
 import jakarta.persistence.NamedQuery;
+import jakarta.persistence.OneToMany;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -36,9 +41,21 @@ public class CompteBancaire implements Serializable {
     @Column(name = "NOM")             
     private String nom;   
     
+    @OneToMany(cascade=CascadeType.ALL , fetch=FetchType.EAGER)
+    private List<OperationBancaire> operations = new ArrayList<OperationBancaire>();
+
+    public List<OperationBancaire> getOperations() {
+        return operations;
+    }
+
+    public void setOperations(List<OperationBancaire> operations) {
+        this.operations = operations;
+    }
     public CompteBancaire(){
 
     }
+    
+    
 
     public Long getId() {
         return id;
@@ -92,6 +109,7 @@ public class CompteBancaire implements Serializable {
   public CompteBancaire(String nom, int solde) {  
   this.nom = nom;  
   this.solde = solde;  
+  this.operations.add(new OperationBancaire("Création du compte",solde));
 }  
 
     /**

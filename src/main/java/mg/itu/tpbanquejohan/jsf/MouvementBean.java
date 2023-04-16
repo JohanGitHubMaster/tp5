@@ -15,6 +15,7 @@ import jakarta.inject.Named;
 import java.io.Serializable;
 import mg.itu.tpbanquejohan.ejb.GestionnaireCompte;
 import mg.itu.tpbanquejohan.entities.CompteBancaire;
+import mg.itu.tpbanquejohan.entities.OperationBancaire;
 import mg.itu.tpbanquejohan.jsf.util.Util;
 
 /**
@@ -89,9 +90,9 @@ public class MouvementBean implements Serializable {
   }
   
   public String enregistrerMouvement() {
-    if (typeMouvement.equals("****")) {
+    if (typeMouvement.equals("ajout")) {
       gestionnaireCompte.deposer(compte, montant);
-    } else {
+    } else {       
       gestionnaireCompte.retirer(compte, montant);
     }
     Util.addFlashInfoMessage("Mouvement enregistré sur compte de " + compte.getNom());

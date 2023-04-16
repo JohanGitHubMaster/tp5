@@ -12,6 +12,7 @@ import jakarta.persistence.Query;
 import jakarta.persistence.TypedQuery;
 import java.util.List;
 import mg.itu.tpbanquejohan.entities.CompteBancaire;
+import mg.itu.tpbanquejohan.entities.OperationBancaire;
 
 /**
  *
@@ -79,6 +80,7 @@ public class GestionnaireCompte {
      * @param montant
      */
     public void deposer(CompteBancaire compteBancaire, int montant) {
+        compteBancaire.getOperations().add(new OperationBancaire("credit", montant));
         compteBancaire.deposer(montant);
         update(compteBancaire);
     }
@@ -90,6 +92,7 @@ public class GestionnaireCompte {
      * @param montant
      */
     public void retirer(CompteBancaire compteBancaire, int montant) {
+        compteBancaire.getOperations().add(new OperationBancaire("debit", -montant));
         compteBancaire.retirer(montant);
         update(compteBancaire);
     }

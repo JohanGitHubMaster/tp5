@@ -67,7 +67,18 @@
                        
 
                        <h:link outcome="mouvementCompte?id=#{item.id}" 
-                            value="retrait/transfert #{item.nom}"/>
+                            value="retrait/ajout"/>
+
+                    </p:column>
+                    
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="mouvement"/>
+                        </f:facet>
+                       
+
+                       <h:link outcome="historiqueCompte?id=#{item.id}" 
+                            value="details"/>
 
                     </p:column>
                     

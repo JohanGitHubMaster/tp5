@@ -32,7 +32,7 @@ public class ListeComptes implements Serializable {
     
     public List<CompteBancaire> comptebancairelist;
     
-    
+    private CompteBancaire compteBancaire;
     
     
     public List<CompteBancaire> getAllComptes(){  
@@ -41,8 +41,6 @@ public class ListeComptes implements Serializable {
             comptebancairelist = autre.getAllComptes();
            return comptebancairelist;          
         }
-    
-   
            
     
     public String supprimerLeCompte(CompteBancaire compteBancaire){
