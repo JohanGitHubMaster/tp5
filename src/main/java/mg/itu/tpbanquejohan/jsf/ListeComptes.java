@@ -12,6 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 import mg.itu.tpbanquejohan.ejb.GestionnaireCompte;
 import mg.itu.tpbanquejohan.entities.CompteBancaire;
+import mg.itu.tpbanquejohan.jsf.util.Util;
 
 /**
  *
@@ -45,7 +46,8 @@ public class ListeComptes implements Serializable {
     
     public String supprimerLeCompte(CompteBancaire compteBancaire){
         this.autre.supprimerCompte(compteBancaire);
-        return "listeComptes";
+        Util.addFlashInfoMessage("suppression du compte de "+compteBancaire.getNom()+" fait avec succes");
+        return "listeComptes?faces-redirect=true";
     }
     
 }

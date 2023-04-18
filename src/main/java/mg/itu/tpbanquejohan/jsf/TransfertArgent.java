@@ -9,6 +9,7 @@ import jakarta.enterprise.context.RequestScoped;
 import jakarta.inject.Named;
 import mg.itu.tpbanquejohan.ejb.GestionnaireCompte;
 import mg.itu.tpbanquejohan.entities.CompteBancaire;
+import mg.itu.tpbanquejohan.jsf.util.Util;
 
 /**
  *
@@ -80,6 +81,7 @@ public class TransfertArgent {
         this.compteBancaireaTransferer = gestionnaireCompte.findById(this.idtransfert);
         this.compteBancaire = gestionnaireCompte.findById(id);
         gestionnaireCompte.transferer(this.compteBancaire,this.compteBancaireaTransferer,this.solde);
-        return "listeComptes";
+        Util.addFlashInfoMessage("Mouvement transferer sur compte de " + this.compteBancaire.getNom() +" au compte de "+this.compteBancaireaTransferer.getNom());
+        return "listeComptes?faces-redirect=true";
     }
 }

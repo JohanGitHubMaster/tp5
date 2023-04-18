@@ -10,6 +10,7 @@ import jakarta.inject.Named;
 import mg.itu.tpbanquejohan.ejb.GestionnaireCompte;
 import mg.itu.tpbanquejohan.entities.CompteBancaire;
 import mg.itu.tpbanquejohan.entities.OperationBancaire;
+import mg.itu.tpbanquejohan.jsf.util.Util;
 
 /**
  *
@@ -55,7 +56,8 @@ public class AjoutCompte {
     public String ajoutNouveauCompte() {
         this.nouveauCompte = new CompteBancaire(this.nom,this.solde);
         gestionnaireCompte.creerCompte(this.nouveauCompte);
-        return "listeComptes";
+        Util.addFlashInfoMessage("ajout du compte de "+this.nouveauCompte.getNom()+" fait avec succes");
+        return "listeComptes?faces-redirect=true";
     }
 
     public AjoutCompte() {

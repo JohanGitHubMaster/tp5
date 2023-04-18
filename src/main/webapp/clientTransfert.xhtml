@@ -45,9 +45,8 @@
                         <h:outputLabel value="solde:" for="solde" />
                         <h:inputText id="solde" value="#{transfertArgent.solde}" title="solde" />
 
-                        <h:commandButton id="update" value="Transferer" action="#{transfertArgent.transfertargent}"/>
+                        <h:commandButton id="update" value="Transferer" action="#{transfertArgent.transfertargent()}"/>
                     </h:panelGrid>
-
                 </h:form>
                 <h:messages/>
             </ui:define>
