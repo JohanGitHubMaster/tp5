@@ -6,65 +6,69 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:p="http://primefaces.org/ui">
 
-    <f:metadata>
-        <f:viewParam name="id" value="#{historiqueCompteBean.id}"
-                     required="true"/>
-        <f:viewAction action="#{historiqueCompteBean.loadCompte}"/>
-    </f:metadata>
+
     <body>
 
         <ui:composition template="./WEB-INF/templates/template_defaut.xhtml">
 
+            <ui:define name="metadata">
+                <f:metadata>
+                    <f:viewParam name="id" value="#{historiqueCompteBean.id}"
+                                 required="true"/>
+                    <f:viewAction action="#{historiqueCompteBean.loadCompte}"/>
+                </f:metadata>
+            </ui:define>
+
             <ui:define name="top">
-                top
+                historique des comptes
             </ui:define>
 
             <ui:define name="content">
                 <f:view>
 
-            <h:form>
-                <h1><h:outputText value="Liste des comptes Bancaires"/></h1>
-                <p:dataTable value="#{historiqueCompteBean.compte.operations}" var="item"
-                             paginator="true" rows="10"
-                             rowsPerPageTemplate="2,4,8,10"
-                             lazy="true"
-                             paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}">
+                    <h:form>
+                        <h1><h:outputText value="Liste des comptes Bancaires"/></h1>
+                        <p:dataTable value="#{historiqueCompteBean.compte.operations}" var="item"
+                                     paginator="true" rows="10"
+                                     rowsPerPageTemplate="2,4,8,10"
+                                     lazy="true"
+                                     paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}">
 
 
-                    <p:column>
-                        <f:facet name="header">
-                            <h:outputText value="id"/>
-                        </f:facet>
-                        <h:outputText value="#{item.id}"/>
-                    </p:column>
+                            <p:column>
+                                <f:facet name="header">
+                                    <h:outputText value="id"/>
+                                </f:facet>
+                                <h:outputText value="#{item.id}"/>
+                            </p:column>
 
 
-                    <p:column>
-                        <f:facet name="header">
-                            <h:outputText value="description"/>
-                        </f:facet>
-                        <h:outputText value="#{item.description}"/>
-                    </p:column>
+                            <p:column>
+                                <f:facet name="header">
+                                    <h:outputText value="description"/>
+                                </f:facet>
+                                <h:outputText value="#{item.description}"/>
+                            </p:column>
 
-                    <p:column>
-                        <f:facet name="header">
-                            <h:outputText value="montant"/>
-                        </f:facet>
-                        <h:outputText value="#{item.montant}"/>
-                    </p:column>
-                    
-                     <p:column>
-                        <f:facet name="header">
-                            <h:outputText value="date Opération"/>
-                        </f:facet>
-                         <h:outputText value="#{item.dateOperation}"/>
-                    </p:column>
+                            <p:column>
+                                <f:facet name="header">
+                                    <h:outputText value="montant"/>
+                                </f:facet>
+                                <h:outputText value="#{item.montant}"/>
+                            </p:column>
+
+                            <p:column>
+                                <f:facet name="header">
+                                    <h:outputText value="date Opération"/>
+                                </f:facet>
+                                <h:outputText value="#{item.dateOperation}"/>
+                            </p:column>
 
 
-                </p:dataTable>              
-            </h:form>
-            <h:messages/>
-        </f:view>
+                        </p:dataTable>              
+                    </h:form>
+                    <h:messages/>
+                </f:view>
             </ui:define>
 
         </ui:composition>
